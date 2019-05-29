@@ -20,7 +20,7 @@ public class Parsing {
 	
 	//Append everything to the answer, write the data to a file preceded by a ;
 	public void submit(String filename) {
-		answer = q1 + "," + q2 + "," + q3 + "," + q4
+		answer = q1 + "," + q2 + "," + q3 + "," + q4;
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(filename));
 			out.write(answer);

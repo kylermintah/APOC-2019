@@ -4,7 +4,15 @@
  * and open the template in the editor.
  */
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import org.python.util.PythonInterpreter;
 
 /**
  *
@@ -259,7 +267,7 @@ private int q4 =-1;
         return result;
     }
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         
         //Verify Input
         boolean valid = true;
@@ -294,11 +302,27 @@ private int q4 =-1;
                 valid = false;
             }
             if (valid == true){
-                Parsing obj = new Parsing(q1,q2,q3,q4,0,0,0,0,0,0);
+                Parsing obj = new Parsing(q1,q2,q3,q4);
                 obj.submit("entry.txt");
+                
+                 Properties p = new Properties();
+         
+            p.setProperty("python.path", "C:/githubProjects/APOC-2019/jython2.7.0");
+            p.setProperty("python.home", "C:/githubProjects/APOC-2019/jython2.7.0");
+            p.setProperty("python.prefix", "C:/githubProjects/APOC-2019/jython2.7.0");
+            PythonInterpreter.initialize(p,p, new String[0]);
+                
+            PythonInterpreter interp = new PythonInterpreter();
+            InputStream br = null;
+            try {
+                br = new BufferedInputStream(new FileInputStream("C:\\githubProjects\\APOC-2019\\apoc_code.py"));
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            interp.execfile(br);
+            interp.close();
             } else{
                 JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
-       
             }
     }//GEN-LAST:event_submitButtonActionPerformed
 
