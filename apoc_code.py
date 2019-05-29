@@ -14,7 +14,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 #from joblib import dump, load
 
-def main(database_file=None, input_file=None):
+def ML_function(database_file=None, input_file=None):
 	#loading the data
 	# fieldnames = ['age','sex','cp','chol','target']
 	dataset = pandas.read_csv(database_file)
@@ -91,5 +91,6 @@ def main(database_file=None, input_file=None):
 if __name__ == '__main__':
     main(
         database_file=sys.argv[1],
-        input_file=sys.argv[2]
+        input_file=sys.argv[2],
+        ML_function(database_file,input_file)
     )
