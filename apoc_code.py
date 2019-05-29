@@ -53,12 +53,17 @@ def main(database_file=None, input_file=None):
 	# evaluate each model in turn
 	results = []
 	names = []
+	return_percentage = 0
 	for name, model in models:
 		kfold = model_selection.KFold(n_splits=10, random_state=seed)
 		cv_results = model_selection.cross_val_score(model, X_train, Y_train, cv=kfold, scoring=scoring)
 		results.append(cv_results)
 		names.append(name)
 		msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
+
+		#get the percentage accuracy
+		if name == 'NB':
+			return_percentage = cv_results.mean()*100
 		print(msg)
 
 
@@ -69,7 +74,7 @@ def main(database_file=None, input_file=None):
 	prediction_input = [user_content_array[:-1]]
 	prediction_return = nb.predict(prediction_input)
 	prediction_writer = open('APOCFinalGUI/prediction.txt', 'w')
-	prediction_writer.write(str(prediction_return[0]))
+	prediction_writer.write(str(prediction_return[0])+','+str(return_percentage))
 
 
 if __name__ == '__main__':
