@@ -32,7 +32,8 @@ public class Parsing {
 	
 	//Append everything to the answer, write the data to a file preceded by a ;
 	public void submit(String filename) {
-		answer = answer + q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10 + ";";
+		answer = answer + q1 + "," + q2 + "," + q3 + "," + q4 + "," + q5 +
+                  "," + q6 + "," + q7 + "," + q8 + "," + q9 + "," + q10 + ";";
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(filename));
 			out.write(answer);
