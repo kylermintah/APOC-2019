@@ -1,4 +1,6 @@
 # Load libraries
+import csv
+import sys
 import pandas
 from pandas.plotting import scatter_matrix
 import matplotlib.pyplot as plt
@@ -14,28 +16,23 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 #from joblib import dump, load
 
-def ML_function(database_file=None, input_file=None):
+def main(database_file=None, input_file=None):
 	#loading the data
-	# fieldnames = ['age','sex','cp','chol','target']
 	dataset = pandas.read_csv(database_file)
-	#print(dataset.groupby('target').size())
+	f = open(input_file, "r")
+	user_content = f.read()
+	user_content_array = user_content.split(",")
+	user_content_array[0] = int(user_content_array[0])
+	user_content_array[1] = int(user_content_array[1])
+	user_content_array[2] = int(user_content_array[2])
+	user_content_array[3] = int(user_content_array[3])
+	user_content_array[4] = int(user_content_array[4])
 
-	# # box and whisker plots
-	# dataset.plot(kind='box', subplots=True, layout=(6,6), sharex=False, sharey=False)
-	# plt.show()
-
-	# # histograms
-	# dataset.hist()
-	# plt.show()
-
-	# # scatter plot matrix
-	# scatter_matrix(dataset)
-	# plt.show()
 
 	# Split-out validation dataset
 	array = dataset.values
-	X = array[:,0:1]
-	Y = array[:,1]
+	X = array[:,0:4]
+	Y = array[:,4]
 	validation_size = 0.20
 	seed = 7
 	X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
@@ -65,32 +62,18 @@ def ML_function(database_file=None, input_file=None):
 		print(msg)
 
 
-
-	#dump(model, 'model.pkl')
-	# # Compare Algorithms
-	# fig = plt.figure()
-	# fig.suptitle('Algorithm Comparison')
-	# ax = fig.add_subplot(111)
-	# plt.boxplot(results)
-	# ax.set_xticklabels(names)
-	# plt.show()
-
-	# Make predictions on validation dataset
+	# Make predictions on validation dataset and on user input
 	nb = GaussianNB()
 	nb.fit(X_train, Y_train)
-	predictions = nb.predict(X_validation)
-	# print(X_validation)
-	#print(predictions)
-	# print(accuracy_score(Y_validation, predictions))
-	# print(confusion_matrix(Y_validation, predictions))
-	# print(classification_report(Y_validation, predictions))
-	# def predictor(user_input):
-	#our_pred = nb.predict(user_input)
-	#print(our_pred)
+	predictions_test = nb.predict(X_validation)
+	prediction_input = [user_content_array[:-1]]
+	prediction_return = nb.predict(prediction_input)
+	prediction_writer = open('APOCFinalGUI/prediction.txt', 'w')
+	prediction_writer.write(str(prediction_return[0]))
+
 
 if __name__ == '__main__':
     main(
         database_file=sys.argv[1],
         input_file=sys.argv[2],
-        ML_function(database_file,input_file)
     )
