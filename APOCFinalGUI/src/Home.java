@@ -7,6 +7,7 @@
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -307,20 +308,28 @@ private int q4 =-1;
                 
                  Properties p = new Properties();
          
-            p.setProperty("python.path", "C:/githubProjects/APOC-2019/jython2.7.0");
-            p.setProperty("python.home", "C:/githubProjects/APOC-2019/jython2.7.0");
-            p.setProperty("python.prefix", "C:/githubProjects/APOC-2019/jython2.7.0");
+            p.setProperty("python.path", "/Users/abigiraneza/desktop/apoc/APOC-2019/jython2.7.0");
+            p.setProperty("python.home", "/Users/abigiraneza/desktop/apoc/APOC-2019/jython2.7.0");
+            p.setProperty("python.prefix", "/Users/abigiraneza/desktop/apoc/APOC-2019/jython2.7.0");
             PythonInterpreter.initialize(p,p, new String[0]);
                 
-            PythonInterpreter interp = new PythonInterpreter();
-            InputStream br = null;
+//            PythonInterpreter interp = new PythonInterpreter();
+//            InputStream br = null;
+//            try {
+//                br = new BufferedInputStream(new FileInputStream("/Users/abigiraneza/desktop/apoc/APOC-2019/apoc_code.py"));
+//            } catch (FileNotFoundException ex) {
+//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            interp.execfile(br);
+//            interp.close();
+            String command = "python /Users/abigiraneza/desktop/apoc/APOC-2019/apoc_code.py /Users/abigiraneza/desktop/apoc/APOC-2019/heart_ML_data.csv /Users/abigiraneza/desktop/apoc/APOC-2019/APOCFinalGUI/entry.txt";
             try {
-                br = new BufferedInputStream(new FileInputStream("C:\\githubProjects\\APOC-2019\\apoc_code.py"));
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            interp.execfile(br);
-            interp.close();
+				Process proc = Runtime.getRuntime().exec(command);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
             } else{
                 JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
             }
