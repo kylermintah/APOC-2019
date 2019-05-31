@@ -27,8 +27,6 @@ def main(database_file=None, input_file=None):
 	user_content_array[1] = int(user_content_array[1])
 	user_content_array[2] = int(user_content_array[2])
 	user_content_array[3] = int(user_content_array[3])
-	user_content_array[4] = int(user_content_array[4])
-
 
 	# Split-out validation dataset
 	array = dataset.values
@@ -72,7 +70,7 @@ def main(database_file=None, input_file=None):
 	nb = GaussianNB()
 	nb.fit(X_train, Y_train)
 	predictions_test = nb.predict(X_validation)
-	prediction_input = [user_content_array[:-1]]
+	prediction_input = [user_content_array]
 	prediction_return = nb.predict(prediction_input)
 	prediction_writer = open('APOCFinalGUI/prediction.txt', 'w')
 	prediction_writer.write(str(prediction_return[0])+','+str(return_percentage))
