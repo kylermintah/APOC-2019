@@ -5,11 +5,18 @@
  */
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -136,6 +143,12 @@ private int q4 =-1;
         jLabel9.setText("asymptomatic");
 
         jLabel10.setText("Question 4: Cholesterol");
+
+        cholesterolField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cholesterolFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,34 +318,35 @@ private int q4 =-1;
             if (valid == true){
                 Parsing obj = new Parsing(q1,q2,q3,q4);
                 obj.submit("entry.txt");
-                
-                 Properties p = new Properties();
-         
-            p.setProperty("python.path", "/Users/abigiraneza/desktop/apoc/APOC-2019/jython2.7.0");
-            p.setProperty("python.home", "/Users/abigiraneza/desktop/apoc/APOC-2019/jython2.7.0");
-            p.setProperty("python.prefix", "/Users/abigiraneza/desktop/apoc/APOC-2019/jython2.7.0");
-            PythonInterpreter.initialize(p,p, new String[0]);
-                
-//            PythonInterpreter interp = new PythonInterpreter();
-//            InputStream br = null;
-//            try {
-//                br = new BufferedInputStream(new FileInputStream("/Users/abigiraneza/desktop/apoc/APOC-2019/apoc_code.py"));
-//            } catch (FileNotFoundException ex) {
-//                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            interp.execfile(br);
-//            interp.close();
-            String command = "python /Users/abigiraneza/desktop/apoc/APOC-2019/apoc_code.py /Users/abigiraneza/desktop/apoc/APOC-2019/heart_ML_data.csv /Users/abigiraneza/desktop/apoc/APOC-2019/APOCFinalGUI/entry.txt";
+                ProcessBuilder processBuilder = new ProcessBuilder("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\run_script.bat");
             try {
-				Process proc = Runtime.getRuntime().exec(command);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-            
-            } else{
+                Process process = processBuilder.start();
+                process.waitFor(1500, TimeUnit.MILLISECONDS);
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            try {
+                BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
+                String line = ba.readLine();
+                ba.close();
+                FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
+                fw.write("");
+                
+                JOptionPane.showMessageDialog(null, line);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+            }else{
                 JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
             }
+//           
+//            
+             
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void QoneOoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QoneOoneActionPerformed
@@ -364,6 +378,10 @@ private int q4 =-1;
         // TODO add your handling code here:
         q3 = 3;
     }//GEN-LAST:event_QfourOfourActionPerformed
+
+    private void cholesterolFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cholesterolFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cholesterolFieldActionPerformed
 
     /**
      * @param args the command line arguments

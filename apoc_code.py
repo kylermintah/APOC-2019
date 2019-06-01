@@ -17,7 +17,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 #from joblib import dump, load
 
-def main(database_file=None, input_file=None):
+def main():
+	database_file="C:/githubProjects/APOC-2019/heart_ML_data.csv"
+	input_file="C:/githubProjects/APOC-2019/APOCFinalGUI/entry.txt"
 	#loading the data
 	dataset = pandas.read_csv(database_file)
 	f = open(input_file, "r")
@@ -72,12 +74,12 @@ def main(database_file=None, input_file=None):
 	predictions_test = nb.predict(X_validation)
 	prediction_input = [user_content_array]
 	prediction_return = nb.predict(prediction_input)
-	prediction_writer = open('APOCFinalGUI/prediction.txt', 'w')
+	prediction_writer = open('C:/githubProjects/APOC-2019/APOCFinalGUI/prediction.txt', 'w')
 	prediction_writer.write(str(prediction_return[0])+','+str(return_percentage))
-
+	sys.exit(0)
 
 if __name__ == '__main__':
     main(
-        database_file=sys.argv[1],
-        input_file=sys.argv[2],
+        # database_file=sys.argv[1],
+        # input_file=sys.argv[2],
     )
