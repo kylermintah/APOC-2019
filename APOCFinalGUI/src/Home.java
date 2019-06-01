@@ -37,8 +37,9 @@ private int q4 =-1;
      * Creates new form Home
      */
     public Home() {
-        this.setLocationRelativeTo(null);
+       
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**
@@ -333,7 +334,7 @@ private int q4 =-1;
                 ba.close();
                 FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
                 fw.write("");
-                
+                fw.close();
                 JOptionPane.showMessageDialog(null, line);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
