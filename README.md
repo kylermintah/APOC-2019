@@ -1,9 +1,9 @@
 # LEADS
 ## Machine Learing Early Detection System
-### APOC 2019 Project
+
 This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
-![Image](docs/teamslide.png)
+![Image](docs/teamslide.PNG)
 
 **Appropriate Point of Care Diagnostics:** Class of 2019.
 
