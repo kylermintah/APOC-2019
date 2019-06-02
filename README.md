@@ -53,7 +53,51 @@ In java, the team created an app with the user interface for inputting patient d
 The app is only intended for nurses and trained professionals to use. As such, to protect the integrity of the dataset and security of patient information, we added a login feature before opening the app. Ideally, each nurse will be given their own username and password which will be added to a text file which the java program reads. The login page graphic and corresponding backend code are displayed below.
 
 - Insert login graphic here
-- Insert login backend code here
+**Login backend code:**
+ import java.io.*;
+ import java.util.*;
+
+ public class LoginBackend {
+
+	 public final String filename;
+	 private boolean valid;
+	 private HashMap<String, String> users;
+	
+	 public LoginBackend(String name) throws IOException {
+	 	filename = name;
+		 valid = false;
+		 users = new HashMap<String, String>();
+		 try {
+		 	String line = "";
+		 	String user = "";
+		 	String pass = "";
+		 	BufferedReader reader = new BufferedReader(new FileReader( new File(filename)));
+			
+	 		line = reader.readLine();
+
+	 		while (line != null) {	
+	 			Scanner sc = new Scanner(line).useDelimiter(",");
+		 		user = sc.next();
+		 		pass = sc.next();
+	 			users.put(user, pass);
+	 			sc.close();
+	 			line = reader.readLine();
+	 		}
+			
+	 		reader.close();
+	 	} catch (FileNotFoundException e) {
+	 		System.out.println ("File not found");
+	 	}
+ 	}
+	
+ 	public boolean login (String user, String pass) {
+	 	if (users.containsKey(user) && users.get(user).equals(pass)) {
+	 		valid = true;
+	 	}
+	 	return valid;
+ 	}
+	
+ }
 
 Once the nurse has successfully logged in, the app then progresses to the main survey. The survey contains interactive buttons and text fields for nurses and medical professionals to input as they meet with the patient. Our current survey includes questions revolving around heart disease, as we used a [dataset](https://www.kaggle.com/ronitf/heart-disease-uci) for heart disease as a proof of concept for the project. Once implemented, the survey would include approximately 10 questions revolving around tuberculosis, measuring a variety of attributes such as prior exposure, potential risk factors, symptoms, and other patient data.
 
