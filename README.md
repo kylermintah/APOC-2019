@@ -36,7 +36,7 @@ Our project proposes to identify more asymptomatic tuberculosis cases currently 
 
 **PROPOSED SOLUTION**
 
-The project proposed by our team attempts to identify more missed tuberculosis cases currently being missed in order to increase the effort to further eradicate the disease from Ghana. We propose to train nurses in the clinic to operate a tablet-based app, which allows them to enter patient data in the HIV clinic with a variety of screening questions. The data from the app, once submitted, communicates with a computer program via an SMS service. The program will then pass the data through a machine learning algorithm of our design which will be trained by an existing dataset containing patient data and diagnoses. The algorithm, once trained, will be able to take in new survey inputs and output a likelihood in which the patient has TB, which can then aid the doctor’s decision regarding whether or not to refer the patient to a laboratory or a TB clinic for further examination.
+The project proposed by our team attempts to identify more missed tuberculosis cases currently being missed in order to increase the effort to further eradicate the disease from Ghana. We propose to train nurses in the clinic to operate a tablet-based app, which allows them to enter patient data in the HIV clinic with a variety of screening questions. The data from the app, once submitted, communicates with a computer program in python. The program will then pass the data through a machine learning algorithm of our design which will be trained by an existing dataset containing patient data and diagnoses. The algorithm, once trained, will be able to take in new survey inputs and output a likelihood in which the patient has TB, which can then aid the doctor’s decision regarding whether or not to refer the patient to a laboratory or a TB clinic for further examination.
 
 **Why Machine Learning?** Machine learning, a subset of artificial intelligence, is the scientific study of algorithms and statistical models that computer systems use in order to perform a specific task effectively without using explicit instructions, relying on patterns and inference instead. [Source](https://en.wikipedia.org/w/index.php?title=Machine_learning&oldid=899398955) It provides a method for which patterns and correlations between large datasets can be studied where analysis would be too complicated for humans to interpret otherwise. Machine learning-based systems are constantly learning from their datasets and, as such, are able to update their output results over time. The constant retraining of data enables time trends to be studied and ensures that the algorithms remain applicable to such a dynamic dataset.
 
@@ -44,3 +44,31 @@ The project proposed by our team attempts to identify more missed tuberculosis c
 
 ## PROJECT WALKTHROUGH
 
+### Phase 1: Front-End App
+
+- Insert opening app graphic here
+
+In java, the team created an app with the user interface for inputting patient data. The app features a language selection page, followed by a login page. (For demonstrative purposes, the app interface is only created in English. In a future implementation of the project, it would also feature Twi and any other language specific to the area in which the project is to be implemented. An example graphic of the language selection page is featured below.)
+
+- Insert language selection page here
+
+The app is only intended for nurses and trained professionals to use. As such, to protect the integrity of the dataset and security of patient information, we added a login feature before opening the app. Ideally, each nurse will be given their own username and password which will be added to a text file which the java program reads. The login page graphic and corresponding backend code are displayed below.
+
+- Insert login graphic here
+- Insert login backend code here
+
+Once the nurse has successfully logged in, the app then progresses to the main survey. The survey contains interactive buttons and text fields for nurses and medical professionals to input as they meet with the patient. Our current survey includes questions revolving around heart disease, as we used a [dataset]() for heart disease as a proof of concept for the project. Once implemented, the survey would include approximately 10 questions revolving around tuberculosis, measuring a variety of attributes such as prior exposure, potential risk factors, symptoms, and other patient data.
+
+- Insert main survey graphic here
+
+When the nurse clicks the submit button, the java program writes the data to a text file and subsquently runs a python program designed by the team to process the data with the algorithm. The python program reads the text file and runs the data through the algorithm. Once results are gathered, the python program writes the results in a second text file. As the python program finishes, the java program continues, reading from the new text file with the output and displaying the result in a pop up message to the app user.
+
+- A lot of pictures here, accompanied with captions
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## NEXT STEPS
+
+Propose the 3 stages of the project implementation here, and discuss any legal things the pilot would have to undergo in order to be officially instated.
+
+Suggest the generalizability of the project, and create an argument that machine learning as a practice can be used as an advanced early diagnostic for a variety of other diseases.
