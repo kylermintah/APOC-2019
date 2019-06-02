@@ -44,8 +44,6 @@ The project proposed by our team attempts to identify more missed tuberculosis c
 
 ## PROJECT WALKTHROUGH
 
-### Phase 1: Front-End App
-
 - Insert opening app graphic here
 
 In java, the team created an app with the user interface for inputting patient data. The app features a language selection page, followed by a login page. (For demonstrative purposes, the app interface is only created in English. In a future implementation of the project, it would also feature Twi and any other language specific to the area in which the project is to be implemented. An example graphic of the language selection page is featured below.)
@@ -57,7 +55,7 @@ The app is only intended for nurses and trained professionals to use. As such, t
 - Insert login graphic here
 - Insert login backend code here
 
-Once the nurse has successfully logged in, the app then progresses to the main survey. The survey contains interactive buttons and text fields for nurses and medical professionals to input as they meet with the patient. Our current survey includes questions revolving around heart disease, as we used a [dataset]() for heart disease as a proof of concept for the project. Once implemented, the survey would include approximately 10 questions revolving around tuberculosis, measuring a variety of attributes such as prior exposure, potential risk factors, symptoms, and other patient data.
+Once the nurse has successfully logged in, the app then progresses to the main survey. The survey contains interactive buttons and text fields for nurses and medical professionals to input as they meet with the patient. Our current survey includes questions revolving around heart disease, as we used a [dataset](https://www.kaggle.com/ronitf/heart-disease-uci) for heart disease as a proof of concept for the project. Once implemented, the survey would include approximately 10 questions revolving around tuberculosis, measuring a variety of attributes such as prior exposure, potential risk factors, symptoms, and other patient data.
 
 - Insert main survey graphic here
 
