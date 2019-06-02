@@ -28,7 +28,7 @@ This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
 ![image](docs/tbprogressionslide.png)
 
-Above is a graphic depicting the timeline for the progression of Tuberculosis.
+>Above is a graphic depicting the timeline for the progression of Tuberculosis.
 
    As patients can visit the clinic as scarcely as every 3-6 months, symptom-based screening for tuberculosis is not the most effective solution to early TB detection, as it disregards most early cases of TB in which symptoms have not yet surfaced. For example, if a patient comes to the clinic in the second month of disease progression, they currently will not be tested for TB, and the next routine appointment would fall in month 5 of disease progression, where the patient grows too sick to work.
 
