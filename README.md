@@ -36,3 +36,11 @@ Our project proposes to identify more asymptomatic tuberculosis cases currently 
 
 **PROPOSED SOLUTION**
 
+The project proposed by our team attempts to identify more missed tuberculosis cases currently being missed in order to increase the effort to further eradicate the disease from Ghana. We propose to train nurses in the clinic to operate a tablet-based app, which allows them to enter patient data in the HIV clinic with a variety of screening questions. The data from the app, once submitted, communicates with a computer program via an SMS service. The program will then pass the data through a machine learning algorithm of our design which will be trained by an existing dataset containing patient data and diagnoses. The algorithm, once trained, will be able to take in new survey inputs and output a likelihood in which the patient has TB, which can then aid the doctor’s decision regarding whether or not to refer the patient to a laboratory or a TB clinic for further examination.
+
+**Why Machine Learning?** Machine learning, a subset of artificial intelligence, is the scientific study of algorithms and statistical models that computer systems use in order to perform a specific task effectively without using explicit instructions, relying on patterns and inference instead. [Source](https://en.wikipedia.org/w/index.php?title=Machine_learning&oldid=899398955) It provides a method for which patterns and correlations between large datasets can be studied where analysis would be too complicated for humans to interpret otherwise. Machine learning-based systems are constantly learning from their datasets and, as such, are able to update their output results over time. The constant retraining of data enables time trends to be studied and ensures that the algorithms remain applicable to such a dynamic dataset.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## PROJECT WALKTHROUGH
+
