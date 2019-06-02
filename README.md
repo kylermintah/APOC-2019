@@ -44,13 +44,15 @@ The project proposed by our team attempts to identify more missed tuberculosis c
 
 ## PROJECT WALKTHROUGH
 
-- Insert opening app graphic here
+In java, the team created an app with the user interface for inputting patient data. The app features a language selection page, followed by a login page. For demonstrative purposes, the app interface is shown in English. In a future implementation of the project, it would also feature Twi and any other language specific to the area in which the project is to be implemented. The language selection page is featured below.
 
-In java, the team created an app with the user interface for inputting patient data. The app features a language selection page, followed by a login page. (For demonstrative purposes, the app interface is only created in English. In a future implementation of the project, it would also feature Twi and any other language specific to the area in which the project is to be implemented. An example graphic of the language selection page is featured below.)
-
-- Insert language selection page here
+![image](docs/languageslide.png)
 
 The app is only intended for nurses and trained professionals to use. As such, to protect the integrity of the dataset and security of patient information, we added a login feature before opening the app. Ideally, each nurse will be given their own username and password which will be added to a text file which the java program reads. The login page graphic and corresponding backend code are displayed below.
+
+**Login graphic**
+
+-insert login graphic
 
 **Login backend code:**
 
@@ -104,7 +106,79 @@ Once the nurse has successfully logged in, the app then progresses to the main s
 
 When the nurse clicks the submit button, the java program writes the data to a text file and subsquently runs a python program designed by the team to process the data with the algorithm. The python program reads the text file and runs the data through the algorithm. Once results are gathered, the python program writes the results in a second text file. As the python program finishes, the java program continues, reading from the new text file with the output and displaying the result in a pop up message to the app user.
 
-- A lot of pictures here, accompanied with captions
+**Code regarding submit functionality:**
+
+	 private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+         // TODO add your handling code here:
+        
+        //Verify Input
+        boolean valid = true;
+        if (!cholesterolField.getText().trim().isEmpty()){
+            try{
+              q1 = Integer.parseInt(ageField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid age");
+                valid = false;
+                q1 = -1;
+            } finally{
+                 System.out.println("Question 1 registered. Answer = "+q1);
+            }
+        }
+        else{
+            valid = false;
+        }
+            valid = checkRadioButtons();
+            if (!cholesterolField.getText().trim().isEmpty()){
+            try{
+              q4 = Integer.parseInt(cholesterolField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid cholesterol level");
+                valid = false;
+                q4 = -1;
+            } finally {
+                System.out.println("Question 4 registered. Answer = "+q4);
+            }
+            } else{
+                valid = false;
+            }
+            if (valid == true){
+                Parsing obj = new Parsing(q1,q2,q3,q4);
+                obj.submit("entry.txt");
+                ProcessBuilder processBuilder = new ProcessBuilder("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\run_script.bat");
+            try {
+                Process process = processBuilder.start();
+                process.waitFor();
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            try {
+                BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
+                String line = ba.readLine();
+                ba.close();
+                //FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
+                
+                JOptionPane.showMessageDialog(null, line);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
+            }
+
+**Python algorithm:**
+
+- insert necessary python things
+
+**Output message:**
+
+- insert output pane
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
