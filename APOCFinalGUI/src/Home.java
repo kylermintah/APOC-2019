@@ -322,7 +322,7 @@ private int q4 =-1;
                 ProcessBuilder processBuilder = new ProcessBuilder("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\run_script.bat");
             try {
                 Process process = processBuilder.start();
-                process.waitFor(1500, TimeUnit.MILLISECONDS);
+                process.waitFor();
             } catch (IOException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InterruptedException ex) {
@@ -332,9 +332,8 @@ private int q4 =-1;
                 BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
                 String line = ba.readLine();
                 ba.close();
-                FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
-                fw.write("");
-                fw.close();
+                //FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
+                
                 JOptionPane.showMessageDialog(null, line);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
