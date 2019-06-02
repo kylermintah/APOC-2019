@@ -71,7 +71,7 @@ The app is only intended for nurses and trained professionals to use. As such, t
 		 	String line = "";
 		 	String user = "";
 		 	String pass = "";
-		 	BufferedReader reader = new BufferedReader(new FileReader( new File(filename)));
+		 	BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
 			
 	 		line = reader.readLine();
 
@@ -86,7 +86,7 @@ The app is only intended for nurses and trained professionals to use. As such, t
 			
 	 		reader.close();
 	 	} catch (FileNotFoundException e) {
-	 		System.out.println ("File not found");
+	 		System.out.println("File not found");
 	 	}
  	}
 	
