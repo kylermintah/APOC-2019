@@ -29,11 +29,13 @@ def main():
 	user_content_array[1] = int(user_content_array[1])
 	user_content_array[2] = int(user_content_array[2])
 	user_content_array[3] = int(user_content_array[3])
+	user_content_array[4] = int(user_content_array[3])
+	user_content_array[5] = int(user_content_array[3])
 
 	# Split-out validation dataset
 	array = dataset.values
-	X = array[:,0:4]
-	Y = array[:,4]
+	X = array[:,0:6]
+	Y = array[:,6]
 	validation_size = 0.20
 	seed = 7
 	X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
