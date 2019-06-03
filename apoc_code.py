@@ -29,8 +29,8 @@ def main():
 	user_content_array[1] = int(user_content_array[1])
 	user_content_array[2] = int(user_content_array[2])
 	user_content_array[3] = int(user_content_array[3])
-	user_content_array[4] = int(user_content_array[3])
-	user_content_array[5] = int(user_content_array[3])
+	user_content_array[4] = int(user_content_array[4])
+	user_content_array[5] = int(user_content_array[5])
 
 	# Split-out validation dataset
 	array = dataset.values
