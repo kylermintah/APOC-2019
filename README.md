@@ -181,6 +181,8 @@ When the nurse clicks the submit button, the java program parses through each qu
 
 - insert output pane
 
+Once the message with results are displayed, the user can simply exit and the page will reset itself. Should the project be implemented in health systems, the survey entry will be stored in a separate location, and an option will be added to look up a patient to enter their diagnosis following lab tests. This will allow the machine learning algorithm to update itself continually and adapt to any changes in trends with patient data. A separate diagnosis page would be implemented to look up patients, and lab technicians or other relevant medical professionals will be trained to input diagnoses based on lab results.
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 ## NEXT STEPS
