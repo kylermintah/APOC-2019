@@ -18,6 +18,12 @@ This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
 ## PROJECT OVERVIEW
 
+**ROADMAP**
+
+- Insert infographic/ overview slide here
+
+Insert caption regarding infographic here. Follow caption with abstract.
+
 **PROBLEM BACKGROUND**
 
 ![image](docs/motivationslide.PNG)
@@ -216,7 +222,7 @@ Once the database has grown to the desired size, the data will be run through th
 
 ### Phase 5: Analysis of Benefit, Result Report
 
-At the end of the testing period..
+At the end of the testing period, a variety of statistics would be recorded to analyze the benefit of the project. Examples of statistics to collect would include number of early cases caught, number of false positives and negatives to demonstrate specificity and sensitivity of the algorithm, and system accuracy percentages. The statistics of the project would be compared with costs of implementation and increased tuberculosis tests to understand the effects of the project on the health system in Ghana, and such information would additionally be summarized in a report. If the project results in a benefit which outweighs costs of implementation, the team will consider recommending the project as a permanent addition to Ghanaian health clinics and look to grow the initiative.
 
 ### Further Steps
 
