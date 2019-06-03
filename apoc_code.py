@@ -18,7 +18,7 @@ from sklearn.svm import SVC
 #from joblib import dump, load
 
 def main():
-	database_file="C:/githubProjects/APOC-2019/heart_ML_data.csv"
+	database_file="C:/githubProjects/APOC-2019/heart_ML_dataF.csv"
 	input_file="C:/githubProjects/APOC-2019/APOCFinalGUI/entry.txt"
 	#loading the data
 	dataset = pandas.read_csv(database_file)
