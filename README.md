@@ -208,7 +208,15 @@ After approval from the Ghana Health Service, the next step would be to get appr
 
 ### Phase 3: Pilot Programme, Data Collection
 
-The project needs a large dataset in order for the algorithm to produce reliable resuts. As such, the first stage of the pilot programme would involve testing an increased amount of patients who do not normally receive screening. 
+The project needs a large dataset in order for the algorithm to produce reliable resuts. As such, the first stage of the pilot programme would involve gathering a large set of patient data over the course of 3-6 months. A number of patients who normally are not screened for tuberculosis would be tested and screened by the survey. Their data and diagnosis would then be stored in a database as nurses and doctors screen more patients. Ideally, by the end of 6 months, the dataset should be sizable enough to provide results with a desired accuracy for the project. After the data collection phase, patients should not need to be tested unless the screening test advises they do so.
+
+### Phase 4: Pilot Programme, Algorithm testing
+
+Once the database has grown to the desired size, the data will be run through the python script which will train a variety of machine learning algorithms. Once finished, the algorithm with the greatest accuracy during testing will be integrated within the main GUI. The GUI will then be ready for use and nurses will be trained in the clinic on how to use the app and enter patient data. Routinely, a number of patients should be tested regardless of screening results to ensure the continuing accuracy of the program. Externally, we will keep track of statistics regarding patient test results compared with screening results. 
+
+### Phase 5: Analysis of Benefit, Result Report
+
+At the end of the testing period..
 
 ### Further Steps
 
