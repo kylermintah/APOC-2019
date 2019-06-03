@@ -10,7 +10,7 @@ This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-**Program Aim:** To design self-contained portable, portable medical diagnostics to provide high quality medical care in resource limited settings.  
+**Program Aim:** To design self-contained, portable, medical diagnostics to provide high quality medical care in resource limited settings.  
 
 **Program Structure:** 5 months research and study on TB in Ghana. Project proposal. 3 weeks clinic and hospital visits in Ghana. 
 
