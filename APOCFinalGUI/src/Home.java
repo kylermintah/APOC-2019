@@ -413,8 +413,16 @@ private int q6 = -1;
                 String line = ba.readLine();
                 ba.close();
                 //FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
+                String result = "";
+                StringBuilder sb = new StringBuilder(result);
+                if (Integer.parseInt(""+line.charAt(0))==1){
+                sb.append("This patient is likely healthy\n"+line);
+                } else{
+                    sb.append("This patient should be screened for heart disease\n"+line);
+                }
                 
-                JOptionPane.showMessageDialog(null, line);
+                JOptionPane.showMessageDialog(null, sb);
+                
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
