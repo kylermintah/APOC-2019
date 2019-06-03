@@ -18,6 +18,12 @@ This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
 ## PROJECT OVERVIEW
 
+**ROADMAP**
+
+- Insert infographic/ overview slide here
+
+Insert caption regarding infographic here. Follow caption with abstract.
+
 **PROBLEM BACKGROUND**
 
 ![image](docs/motivationslide.PNG)
@@ -187,6 +193,37 @@ Once the message with results are displayed, the user can simply exit and the pa
 
 ## NEXT STEPS
 
-Propose the 3 stages of the project implementation here, and discuss any legal things the pilot would have to undergo in order to be officially instated.
+### Phase 1: Project Refinement
 
-Suggest the generalizability of the project, and create an argument that machine learning as a practice can be used as an advanced early diagnostic for a variety of other diseases.
+As previously stated, some aspects of the project were left unimplemented for demonstration purposes. To refine the project for implementation, a few tasks would ensue:
+
+- Creating a more secure login feature
+- Updating the interface/ data storage process to allow for continuous algorithm retraining and diagnosis updates
+- Implementing dfferent language options with the GUI
+- Adapt the survey questions to our desired implementation
+
+Once the GUI is updated with the above feature, it is ready for field implementation.
+
+### Phase 2: Legal Approval
+
+In order to implement the project as a pilot programme, it needs approval from a variety of organizations. The team would compose a letter to the Ghana Ministry of Health introducing the project, its potential benefits, and a plan for implementation. 
+
+Once the Ministry of Health approves the project, another letter would be drafted and sent to the Ghana Health Service, outlining the project and attaching the MoH letter of approval. The important portion of the requests would be to specify how we plan to protect patient confidentiality thorughout implementation of the project.
+
+After approval from the Ghana Health Service, the next step would be to get approval from District Helath Directories, which would again involve writing a letter for approval. Finally, to implement the project, approval from the local chief(s) is necessary. Once the chief approves the project, it is ready to be run as a pilot in clinics.
+
+### Phase 3: Pilot Programme, Data Collection
+
+The project needs a large dataset in order for the algorithm to produce reliable resuts. As such, the first stage of the pilot programme would involve gathering a large set of patient data over the course of 3-6 months. A number of patients who normally are not screened for tuberculosis would be tested and screened by the survey. Their data and diagnosis would then be stored in a database as nurses and doctors screen more patients. Ideally, by the end of 6 months, the dataset should be sizable enough to provide results with a desired accuracy for the project. After the data collection phase, patients should not need to be tested unless the screening test advises they do so.
+
+### Phase 4: Pilot Programme, Algorithm testing
+
+Once the database has grown to the desired size, the data will be run through the python script which will train a variety of machine learning algorithms. Once finished, the algorithm with the greatest accuracy during testing will be integrated within the main GUI. The GUI will then be ready for use and nurses will be trained in the clinic on how to use the app and enter patient data. Routinely, a number of patients should be tested regardless of screening results to ensure the continuing accuracy of the program. Externally, we will keep track of statistics regarding patient test results compared with screening results. 
+
+### Phase 5: Analysis of Benefit, Result Report
+
+At the end of the testing period, a variety of statistics would be recorded to analyze the benefit of the project. Examples of statistics to collect would include number of early cases caught, number of false positives and negatives to demonstrate specificity and sensitivity of the algorithm, and system accuracy percentages. The statistics of the project would be compared with costs of implementation and increased tuberculosis tests to understand the effects of the project on the health system in Ghana, and such information would additionally be summarized in a report. If the project results in a benefit which outweighs costs of implementation, the team will consider recommending the project as a permanent addition to Ghanaian health clinics and look to grow the initiative.
+
+### Further Steps
+
+Machine learning shows promising performance with regard to early diagnostic tools, which has applications that extend far beyond tuberculosis. An extension for the project would include implementing it in other areas of clinics and applying the principles of machine learning to more infectious diseases, non-communicable diseases, and other medical conditions. Machine learning has the potential to be used as the main diagnostic for a variety of diseases, and its use would benefit the medical community in that it can help continue eradicating coniditions that currently plague Ghana by flagging more patients for testing.
