@@ -178,7 +178,7 @@ private int q6 = -1;
             }
         });
 
-        jLabel13.setText("Question 6: Exercise Induced Angina");
+        jLabel13.setText("Question 6: Exercise-Induced Angina");
 
         jLabel14.setText("Question 5: Resting Blood Pressure");
 
@@ -416,7 +416,7 @@ private int q6 = -1;
                 String result = "";
                 StringBuilder sb = new StringBuilder(result);
                 if (Integer.parseInt(""+line.charAt(0))==1){
-                sb.append("This patient is likely healthy\n"+line);
+                sb.append("This patient does not likely have heart disease\n"+line);
                 } else{
                     sb.append("This patient should be screened for heart disease\n"+line);
                 }

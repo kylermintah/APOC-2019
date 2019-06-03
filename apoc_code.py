@@ -57,27 +57,42 @@ def main():
 	results = []
 	names = []
 	return_percentage = 0
+
+	max = -1
+
+	maxIndex = -1
+	index = 0
+
+
 	for name, model in models:
 		kfold = model_selection.KFold(n_splits=10, random_state=seed)
 		cv_results = model_selection.cross_val_score(model, X_train, Y_train, cv=kfold, scoring=scoring)
 		results.append(cv_results)
 		names.append(name)
+
 		msg = "%s: %f (%f)" % (name, cv_results.mean(), cv_results.std())
 
-		#get the percentage accuracy
-		if name == 'NB':
-			return_percentage = cv_results.mean()*100
+	# get the percentage accuracy
+		# if name == 'NB':
+		#
 		print(msg)
 
+		if cv_results.mean() > max:
+			max = cv_results.mean()
+			maxIndex = index
+
+		index = index + 1
 
 	# Make predictions on validation dataset and on user input
-	nb = GaussianNB()
-	nb.fit(X_train, Y_train)
-	predictions_test = nb.predict(X_validation)
+
+	runningModel = models[maxIndex][1]
+	print(runningModel)
+	runningModel.fit(X_train, Y_train)
+	predictions_test = runningModel.predict(X_validation)
 	prediction_input = [user_content_array]
-	prediction_return = nb.predict(prediction_input)
+	prediction_return = runningModel.predict(prediction_input)
 	prediction_writer = open('C:/githubProjects/APOC-2019/APOCFinalGUI/prediction.txt', 'w')
-	prediction_writer.write(str(prediction_return[0])+','+str(return_percentage))
+	prediction_writer.write(str(prediction_return[0])+','+str(max))
 	sys.exit(0)
 
 if __name__ == '__main__':
