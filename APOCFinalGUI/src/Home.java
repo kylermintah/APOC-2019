@@ -31,7 +31,8 @@ private int q1 =-1;
 private int q2 =-1; 
 private int q3 =-1; 
 private int q4 =-1; 
-
+private int q5 = -1;
+private int q6 = -1;
 
     /**
      * Creates new form Home
@@ -53,6 +54,7 @@ private int q4 =-1;
 
         Question2 = new javax.swing.ButtonGroup();
         Question3 = new javax.swing.ButtonGroup();
+        Question6 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -73,6 +75,13 @@ private int q4 =-1;
         jLabel10 = new javax.swing.JLabel();
         ageField = new javax.swing.JTextField();
         cholesterolField = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        QoneOone1 = new javax.swing.JRadioButton();
+        QoneOtwo1 = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        bpField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,6 +160,34 @@ private int q4 =-1;
             }
         });
 
+        jLabel11.setText("Yes");
+
+        jLabel12.setText("No");
+
+        Question6.add(QoneOone1);
+        QoneOone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QoneOone1ActionPerformed(evt);
+            }
+        });
+
+        Question6.add(QoneOtwo1);
+        QoneOtwo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QoneOtwo1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Question 6: Exercise Induced Angina");
+
+        jLabel14.setText("Question 5: Resting Blood Pressure");
+
+        bpField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bpFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -206,14 +243,27 @@ private int q4 =-1;
                                 .addComponent(jLabel1)))
                         .addContainerGap(460, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(submitButton))
-                        .addContainerGap(772, Short.MAX_VALUE))
+                        .addComponent(ageField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(798, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(cholesterolField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cholesterolField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitButton)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(QoneOone1))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(QoneOtwo1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel12))))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(bpField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -263,9 +313,23 @@ private int q4 =-1;
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
                         .addComponent(cholesterolField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(bpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(QoneOone1)
+                            .addComponent(QoneOtwo1))
+                        .addGap(18, 18, 18)
                         .addComponent(submitButton)
-                        .addContainerGap(157, Short.MAX_VALUE))))
+                        .addContainerGap())))
         );
 
         pack();
@@ -278,7 +342,9 @@ private int q4 =-1;
         if (Question3.getSelection()== null){
             result = false;
         }
-        
+        if (Question6.getSelection()== null){
+            result = false;
+        }
         return result;
     }
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
@@ -316,8 +382,22 @@ private int q4 =-1;
             } else{
                 valid = false;
             }
+            if (!bpField.getText().trim().isEmpty()){
+            try{
+              q5 = Integer.parseInt(bpField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid cholesterol level");
+                valid = false;
+                q5 = -1;
+            } finally {
+                System.out.println("Question 5 registered. Answer = "+q5);
+            }
+            } else{
+                valid = false;
+            }
             if (valid == true){
-                Parsing obj = new Parsing(q1,q2,q3,q4);
+                Parsing obj = new Parsing(q1,q2,q3,q4,q5,q6);
                 obj.submit("entry.txt");
                 ProcessBuilder processBuilder = new ProcessBuilder("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\run_script.bat");
             try {
@@ -383,6 +463,20 @@ private int q4 =-1;
         // TODO add your handling code here:
     }//GEN-LAST:event_cholesterolFieldActionPerformed
 
+    private void QoneOone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QoneOone1ActionPerformed
+        // TODO add your handling code here:
+        q6 = 1;
+    }//GEN-LAST:event_QoneOone1ActionPerformed
+
+    private void QoneOtwo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QoneOtwo1ActionPerformed
+        // TODO add your handling code here:
+        q6 = 0;
+    }//GEN-LAST:event_QoneOtwo1ActionPerformed
+
+    private void bpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bpFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,16 +515,24 @@ private int q4 =-1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton QfourOfour;
     private javax.swing.JRadioButton QoneOone;
+    private javax.swing.JRadioButton QoneOone1;
     private javax.swing.JRadioButton QoneOtwo;
+    private javax.swing.JRadioButton QoneOtwo1;
     private javax.swing.JRadioButton QtwoOone;
     private javax.swing.JRadioButton QtwoOthree;
     private javax.swing.JRadioButton QtwoOtwo;
     private javax.swing.ButtonGroup Question2;
     private javax.swing.ButtonGroup Question3;
+    private javax.swing.ButtonGroup Question6;
     private javax.swing.JTextField ageField;
+    private javax.swing.JTextField bpField;
     private javax.swing.JTextField cholesterolField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
