@@ -193,7 +193,7 @@ Once the message with results are displayed, the user can simply exit and the pa
 
 Below is a mock up of he survey interface should the app be modified to encompass TB diagnostics.
 
-![Image](docs/TBScreening.png)
+![Image](docs/TB-Screening.png)
 
 Should the project be implemented, the TB Screening page, as well as a page with patient vitals signs, would be displayed on the app and used in clinics. The survey questions currently attempt to address alternate symptoms, prior exposure to the disease, and other risk factors.
 
