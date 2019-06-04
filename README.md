@@ -218,7 +218,7 @@ In order to implement the project as a pilot programme, it needs approval from a
 
 Once the Ministry of Health approves the project, another letter would be drafted and sent to the Ghana Health Service, outlining the project and attaching the MoH letter of approval. The important portion of the requests would be to specify how we plan to protect patient confidentiality thorughout implementation of the project.
 
-After approval from the Ghana Health Service, the next step would be to get approval from District Helath Directories, which would again involve writing a letter for approval. Finally, to implement the project, approval from the local chief(s) is necessary. Once the chief approves the project, it is ready to be run as a pilot in clinics.
+After approval from the Ghana Health Service, the next step would be to get approval from District Health Directories, which would again involve writing a letter for approval. Finally, to implement the project, approval from the local chief(s) is necessary. Once the chief approves the project, it is ready to be run as a pilot in clinics.
 
 ### Phase 3: Pilot Programme, Data Collection
 
