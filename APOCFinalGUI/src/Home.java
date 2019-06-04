@@ -180,7 +180,7 @@ private int q6 = -1;
 
         jLabel13.setText("Question 6: Exercise-Induced Angina");
 
-        jLabel14.setText("Question 5: Resting Blood Pressure");
+        jLabel14.setText("Question 5: Resting Systolic Blood Pressure");
 
         bpField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
