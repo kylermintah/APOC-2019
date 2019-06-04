@@ -1,5 +1,13 @@
 
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -44,6 +52,20 @@ public class QuickScreen extends javax.swing.JFrame {
         
     }
 
+     private boolean checkRadioButtons(){
+        boolean result = true;
+        if (q1>-1){
+            result = false;
+        } 
+        if (q3>-1){
+            result = false;
+        }
+        if (q6>-1){
+            result = false;
+        }
+        return result;
+    }
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,8 +79,8 @@ public class QuickScreen extends javax.swing.JFrame {
         MaleRadioButton = new javax.swing.JLabel();
         Female = new javax.swing.JPanel();
         FemaleRadioButton = new javax.swing.JLabel();
-        ageTextBox = new javax.swing.JTextField();
-        bloodPressureTextBox = new javax.swing.JTextField();
+        ageField = new javax.swing.JTextField();
+        bpField = new javax.swing.JTextField();
         typicalAngina = new javax.swing.JPanel();
         typicalAnginaRadioButton = new javax.swing.JLabel();
         atypicalAngina = new javax.swing.JPanel();
@@ -67,12 +89,13 @@ public class QuickScreen extends javax.swing.JFrame {
         nonAnginaRadioButton = new javax.swing.JLabel();
         asymptomatic = new javax.swing.JPanel();
         asymptomaticRadioButton = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        cholesterolField = new javax.swing.JTextField();
+        cholesterolFieldDummy = new javax.swing.JTextField();
         Yes = new javax.swing.JPanel();
         yesRadioButton = new javax.swing.JLabel();
         No = new javax.swing.JPanel();
         noRadioButton = new javax.swing.JLabel();
+        submitButton = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,15 +132,15 @@ public class QuickScreen extends javax.swing.JFrame {
 
         getContentPane().add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 80, 70));
 
-        ageTextBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ageTextBox.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        ageTextBox.setBorder(null);
-        getContentPane().add(ageTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 300, 240, 40));
+        ageField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ageField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        ageField.setBorder(null);
+        getContentPane().add(ageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 300, 240, 40));
 
-        bloodPressureTextBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bloodPressureTextBox.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        bloodPressureTextBox.setBorder(null);
-        getContentPane().add(bloodPressureTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, 240, 40));
+        bpField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bpField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        bpField.setBorder(null);
+        getContentPane().add(bpField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, 240, 40));
 
         typicalAngina.setOpaque(false);
         typicalAngina.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -191,11 +214,11 @@ public class QuickScreen extends javax.swing.JFrame {
 
         getContentPane().add(asymptomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 690, 80, 80));
 
-        jTextField2.setBorder(null);
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 110, 30));
+        cholesterolField.setBorder(null);
+        getContentPane().add(cholesterolField, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 110, 30));
 
-        jTextField3.setBorder(null);
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 100, 30));
+        cholesterolFieldDummy.setBorder(null);
+        getContentPane().add(cholesterolFieldDummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 100, 30));
 
         Yes.setOpaque(false);
         Yes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,6 +250,15 @@ public class QuickScreen extends javax.swing.JFrame {
         No.add(noRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 18, 50, 50));
 
         getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 550, 80, 80));
+
+        submitButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        submitButton.setText("SUBMIT");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 840, 250, 80));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalQuickCheck.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -362,6 +394,96 @@ public class QuickScreen extends javax.swing.JFrame {
         questionSixButtonGroup(0);
     }//GEN-LAST:event_NoMouseClicked
 
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+         
+        //Verify Input
+        boolean valid = true;
+        if (!cholesterolField.getText().trim().isEmpty()){
+            try{
+              q1 = Integer.parseInt(ageField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid age");
+                valid = false;
+                q1 = -1;
+            } finally{
+                 System.out.println("Question 1 registered. Answer = "+q1);
+            }
+        }
+        else{
+            valid = false;
+        }
+            valid = checkRadioButtons();
+            if (!cholesterolField.getText().trim().isEmpty()){
+            try{
+              q4 = Integer.parseInt(cholesterolField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid cholesterol level");
+                valid = false;
+                q4 = -1;
+            } finally {
+                System.out.println("Question 4 registered. Answer = "+q4);
+            }
+            } else{
+                valid = false;
+            }
+            if (!bpField.getText().trim().isEmpty()){
+            try{
+              q5 = Integer.parseInt(bpField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid cholesterol level");
+                valid = false;
+                q5 = -1;
+            } finally {
+                System.out.println("Question 5 registered. Answer = "+q5);
+            }
+            } else{
+                valid = false;
+            }
+            if (valid == true){
+                Parsing obj = new Parsing(q1,q2,q3,q4,q5,q6);
+                obj.submit("entry.txt");
+                ProcessBuilder processBuilder = new ProcessBuilder("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\run_script.bat");
+            try {
+                Process process = processBuilder.start();
+                process.waitFor();
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            try {
+                BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
+                String line = ba.readLine();
+                ba.close();
+                //FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
+                String result = "";
+                StringBuilder sb = new StringBuilder(result);
+                if (Integer.parseInt(""+line.charAt(0))==1){
+                sb.append("This patient does not likely have heart disease\n"+line);
+                } else{
+                    sb.append("This patient should be screened for heart disease\n"+line);
+                }
+                
+                JOptionPane.showMessageDialog(null, sb);
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
+            }
+//           
+//            
+             
+    }//GEN-LAST:event_submitButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -404,18 +526,19 @@ public class QuickScreen extends javax.swing.JFrame {
     private javax.swing.JLabel MaleRadioButton;
     private javax.swing.JPanel No;
     private javax.swing.JPanel Yes;
-    private javax.swing.JTextField ageTextBox;
+    private javax.swing.JTextField ageField;
     private javax.swing.JPanel asymptomatic;
     private javax.swing.JLabel asymptomaticRadioButton;
     private javax.swing.JPanel atypicalAngina;
     private javax.swing.JLabel atypicalAnginaRadioButton;
     private javax.swing.JLabel background;
-    private javax.swing.JTextField bloodPressureTextBox;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField bpField;
+    private javax.swing.JTextField cholesterolField;
+    private javax.swing.JTextField cholesterolFieldDummy;
     private javax.swing.JLabel noRadioButton;
     private javax.swing.JLabel nonAnginaRadioButton;
     private javax.swing.JPanel nonAnginal;
+    private javax.swing.JButton submitButton;
     private javax.swing.JPanel typicalAngina;
     private javax.swing.JLabel typicalAnginaRadioButton;
     private javax.swing.JLabel yesRadioButton;
