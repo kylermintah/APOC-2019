@@ -426,7 +426,7 @@ public class QuickScreen extends javax.swing.JFrame {
             } finally {
                 System.out.println("Question 4 registered. Answer = "+q4);
             }
-            } else{
+            } else{ //hfhf
                 valid = false;
             }
             if (!bpField.getText().trim().isEmpty()){
