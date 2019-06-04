@@ -108,7 +108,7 @@ The app is only intended for nurses and trained professionals to use. As such, t
 
 Once the nurse has successfully logged in, the app then progresses to the main survey. The survey contains interactive buttons and text fields for nurses and medical professionals to input as they meet with the patient. Our current survey includes questions revolving around heart disease, as we used a [dataset](https://www.kaggle.com/ronitf/heart-disease-uci) for heart disease as a proof of concept for the project. Once implemented, the survey would include approximately 10 questions revolving around tuberculosis, measuring a variety of attributes such as prior exposure, potential risk factors, symptoms, and other patient data.
 
-- Insert main survey graphic here
+![Image](docs/HeartCholesterol.png)
 
 When the nurse clicks the submit button, the java program parses through each question and ensures a valid answer is entered. If the program finds an option is not chosen for a multiple choice question or a text box has an inadequate or non-number input, it will display an error message and will not progress until all entries are valid. Once the inputs are verified, the program writes the data to a text file and subsquently runs a python program designed by the team to process the data with the machine learning algorithm. The python program reads the text file and runs the data through the algorithm. Once results are gathered, the python program writes the results in a second text file. As the python program finishes, the java program continues, reading from the new text file with the output and displaying the result in a pop up message to the app user.
 
@@ -188,6 +188,14 @@ When the nurse clicks the submit button, the java program parses through each qu
 - insert output pane
 
 Once the message with results are displayed, the user can simply exit and the page will reset itself. Should the project be implemented in health systems, the survey entry will be stored in a separate location, and an option will be added to look up a patient to enter their diagnosis following lab tests. This will allow the machine learning algorithm to update itself continually and adapt to any changes in trends with patient data. A separate diagnosis page would be implemented to look up patients, and lab technicians or other relevant medical professionals will be trained to input diagnoses based on lab results.
+
+**Further Applications/ Project Adaptations**
+
+Below is a mock up of he survey interface should the app be modified to encompass TB diagnostics.
+
+![Image](docs/TB-Screening.png)
+
+Should the project be implemented, the TB Screening page, as well as a page with patient vitals signs, would be displayed on the app and used in clinics. The survey questions currently attempt to address alternate symptoms, prior exposure to the disease, and other risk factors.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
