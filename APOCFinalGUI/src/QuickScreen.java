@@ -1,3 +1,6 @@
+
+import java.awt.Toolkit;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,16 +26,20 @@ public class QuickScreen extends javax.swing.JFrame {
     public QuickScreen() {
         initComponents();
         extraInitComponents();
+        
         this.setLocationRelativeTo(null);
+        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
     }
 
     private void extraInitComponents() {
+        
         MaleRadioButton.setVisible(false);
         FemaleRadioButton.setVisible(false);
         typicalAnginaRadioButton.setVisible(false);
         atypicalAnginaRadioButton.setVisible(false);
         nonAnginaRadioButton.setVisible(false);
         asymptomaticRadioButton.setVisible(false);
+        
     }
 
     /**
@@ -168,7 +175,7 @@ public class QuickScreen extends javax.swing.JFrame {
                 asymptomaticRadioButtonMouseClicked(evt);
             }
         });
-        asymptomatic.add(asymptomaticRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 10, 40, 60));
+        asymptomatic.add(asymptomaticRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 10, 40, 60));
 
         getContentPane().add(asymptomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 500, 80, 80));
 
