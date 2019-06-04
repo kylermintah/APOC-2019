@@ -15,8 +15,13 @@ public class QuickScreen extends javax.swing.JFrame {
      */
     public QuickScreen() {
         initComponents();
+        extraInitComponents();
     }
-
+    
+    private void extraInitComponents(){
+        MaleRadioButton.setVisible(false);
+        FemaleRadioButton.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,8 +31,8 @@ public class QuickScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        Male = new javax.swing.JPanel();
+        Female = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         ageTextBox = new javax.swing.JTextField();
         FemaleRadioButton = new javax.swing.JLabel();
@@ -37,21 +42,21 @@ public class QuickScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setOpaque(false);
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Male.setOpaque(false);
+        Male.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
+                MaleMouseClicked(evt);
             }
         });
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 70, 70));
+        getContentPane().add(Male, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 70, 70));
 
-        jPanel2.setOpaque(false);
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Female.setOpaque(false);
+        Female.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
+                FemaleMouseClicked(evt);
             }
         });
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 80, 70));
+        getContentPane().add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 80, 70));
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -86,23 +91,23 @@ public class QuickScreen extends javax.swing.JFrame {
         
     }//GEN-LAST:event_MaleRadioButtonMouseClicked
 
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+    private void MaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaleMouseClicked
         // TODO add your handling code here:
         if (MaleRadioButton.isVisible()){
         MaleRadioButton.setVisible(false);
         } else{
             MaleRadioButton.setVisible(true);
         }
-    }//GEN-LAST:event_jPanel1MouseClicked
+    }//GEN-LAST:event_MaleMouseClicked
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+    private void FemaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FemaleMouseClicked
         // TODO add your handling code here:
-        if (MaleRadioButton.isVisible()){
-        MaleRadioButton.setVisible(false);
+        if (FemaleRadioButton.isVisible()){
+        FemaleRadioButton.setVisible(false);
         } else{
-            MaleRadioButton.setVisible(true);
+            FemaleRadioButton.setVisible(true);
         }
-    }//GEN-LAST:event_jPanel2MouseClicked
+    }//GEN-LAST:event_FemaleMouseClicked
 
     /**
      * @param args the command line arguments
@@ -140,12 +145,12 @@ public class QuickScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Female;
     private javax.swing.JLabel FemaleRadioButton;
+    private javax.swing.JPanel Male;
     private javax.swing.JLabel MaleRadioButton;
     private javax.swing.JTextField ageTextBox;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
