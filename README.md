@@ -60,7 +60,7 @@ The app is only intended for nurses and trained professionals to use. As such, t
 
 -insert login graphic
 
-**Login backend code:**
+**Current Login Functionality:**
 
  	import java.io.*;
  	import java.util.*;
