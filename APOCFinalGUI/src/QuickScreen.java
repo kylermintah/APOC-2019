@@ -13,15 +13,28 @@ public class QuickScreen extends javax.swing.JFrame {
     /**
      * Creates new form QuickScreen
      */
+    private int q1 = -1;
+    private int q2 = -1;
+    private int q3 = -1;
+    private int q4 = -1;
+    private int q5 = -1;
+    private int q6 = -1;
+
     public QuickScreen() {
         initComponents();
         extraInitComponents();
+        this.setLocationRelativeTo(null);
     }
-    
-    private void extraInitComponents(){
+
+    private void extraInitComponents() {
         MaleRadioButton.setVisible(false);
         FemaleRadioButton.setVisible(false);
+        typicalAnginaRadioButton.setVisible(false);
+        atypicalAnginaRadioButton.setVisible(false);
+        nonAnginaRadioButton.setVisible(false);
+        asymptomaticRadioButton.setVisible(false);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +50,14 @@ public class QuickScreen extends javax.swing.JFrame {
         ageTextBox = new javax.swing.JTextField();
         FemaleRadioButton = new javax.swing.JLabel();
         MaleRadioButton = new javax.swing.JLabel();
+        typicalAngina = new javax.swing.JPanel();
+        typicalAnginaRadioButton = new javax.swing.JLabel();
+        atypicalAngina = new javax.swing.JPanel();
+        atypicalAnginaRadioButton = new javax.swing.JLabel();
+        nonAnginal = new javax.swing.JPanel();
+        nonAnginaRadioButton = new javax.swing.JLabel();
+        asymptomatic = new javax.swing.JPanel();
+        asymptomaticRadioButton = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,35 +100,183 @@ public class QuickScreen extends javax.swing.JFrame {
         });
         getContentPane().add(MaleRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, 50));
 
+        typicalAngina.setOpaque(false);
+        typicalAngina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                typicalAnginaMouseClicked(evt);
+            }
+        });
+        typicalAngina.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        typicalAnginaRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Filled Circle.png"))); // NOI18N
+        typicalAnginaRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                typicalAnginaRadioButtonMouseClicked(evt);
+            }
+        });
+        typicalAngina.add(typicalAnginaRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 10, 40, 60));
+
+        getContentPane().add(typicalAngina, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 90, 80));
+
+        atypicalAngina.setOpaque(false);
+        atypicalAngina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                atypicalAnginaMouseClicked(evt);
+            }
+        });
+        atypicalAngina.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        atypicalAnginaRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Filled Circle.png"))); // NOI18N
+        atypicalAnginaRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                atypicalAnginaRadioButtonMouseClicked(evt);
+            }
+        });
+        atypicalAngina.add(atypicalAnginaRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 10, 40, 60));
+
+        getContentPane().add(atypicalAngina, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 80, 80));
+
+        nonAnginal.setOpaque(false);
+        nonAnginal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nonAnginalMouseClicked(evt);
+            }
+        });
+        nonAnginal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nonAnginaRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Filled Circle.png"))); // NOI18N
+        nonAnginaRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nonAnginaRadioButtonMouseClicked(evt);
+            }
+        });
+        nonAnginal.add(nonAnginaRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 10, 40, 60));
+
+        getContentPane().add(nonAnginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 80, 80));
+
+        asymptomatic.setOpaque(false);
+        asymptomatic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                asymptomaticMouseClicked(evt);
+            }
+        });
+        asymptomatic.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        asymptomaticRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Filled Circle.png"))); // NOI18N
+        asymptomaticRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                asymptomaticRadioButtonMouseClicked(evt);
+            }
+        });
+        asymptomatic.add(asymptomaticRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 10, 40, 60));
+
+        getContentPane().add(asymptomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 500, 80, 80));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Artboard 1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void questionOneButtonGroup(int x) {
+        switch (x) {
+            case 0:
+                FemaleRadioButton.setVisible(true);
+                MaleRadioButton.setVisible(false);
+                q1 = 0;
+                break;
+            case 1:
+                MaleRadioButton.setVisible(true);
+                FemaleRadioButton.setVisible(false);
+                q1 = 1;
+                break;
+        }
+    }
+
+    private void questionThreeButtonGroup(int x) {
+        switch (x) {
+            case 0:
+                typicalAnginaRadioButton.setVisible(true);
+                atypicalAnginaRadioButton.setVisible(false);
+                nonAnginaRadioButton.setVisible(false);
+                asymptomaticRadioButton.setVisible(false);
+                q3 = 0;
+                break;
+            case 1:
+                atypicalAnginaRadioButton.setVisible(true);
+                typicalAnginaRadioButton.setVisible(false);
+                nonAnginaRadioButton.setVisible(false);
+                asymptomaticRadioButton.setVisible(false);
+                q3 = 1;
+                break;
+            case 2:
+                nonAnginaRadioButton.setVisible(true);
+                typicalAnginaRadioButton.setVisible(false);
+                atypicalAnginaRadioButton.setVisible(false);
+                asymptomaticRadioButton.setVisible(false);
+                q3 = 2;
+                break;
+            case 3:
+                asymptomaticRadioButton.setVisible(true);
+                typicalAnginaRadioButton.setVisible(false);
+                atypicalAnginaRadioButton.setVisible(false);
+                nonAnginaRadioButton.setVisible(false);
+                q3 = 3;
+                break;                
+                
+        }
+    }
     private void MaleRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaleRadioButtonMouseClicked
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_MaleRadioButtonMouseClicked
 
     private void MaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaleMouseClicked
         // TODO add your handling code here:
-        if (MaleRadioButton.isVisible()){
-        MaleRadioButton.setVisible(false);
-        } else{
-            MaleRadioButton.setVisible(true);
-        }
+        questionOneButtonGroup(1);
     }//GEN-LAST:event_MaleMouseClicked
 
     private void FemaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FemaleMouseClicked
         // TODO add your handling code here:
-        if (FemaleRadioButton.isVisible()){
-        FemaleRadioButton.setVisible(false);
-        } else{
-            FemaleRadioButton.setVisible(true);
-        }
+        questionOneButtonGroup(0);
     }//GEN-LAST:event_FemaleMouseClicked
+
+    private void atypicalAnginaRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atypicalAnginaRadioButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_atypicalAnginaRadioButtonMouseClicked
+
+    private void typicalAnginaRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_typicalAnginaRadioButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typicalAnginaRadioButtonMouseClicked
+
+    private void nonAnginaRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nonAnginaRadioButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nonAnginaRadioButtonMouseClicked
+
+    private void asymptomaticRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asymptomaticRadioButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_asymptomaticRadioButtonMouseClicked
+
+    private void typicalAnginaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_typicalAnginaMouseClicked
+        // TODO add your handling code here:
+        questionThreeButtonGroup(0);
+    }//GEN-LAST:event_typicalAnginaMouseClicked
+
+    private void atypicalAnginaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atypicalAnginaMouseClicked
+        // TODO add your handling code here:
+        questionThreeButtonGroup(1);
+    }//GEN-LAST:event_atypicalAnginaMouseClicked
+
+    private void nonAnginalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nonAnginalMouseClicked
+        // TODO add your handling code here:
+        questionThreeButtonGroup(2);
+    }//GEN-LAST:event_nonAnginalMouseClicked
+
+    private void asymptomaticMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asymptomaticMouseClicked
+        // TODO add your handling code here:
+        questionThreeButtonGroup(3);
+    }//GEN-LAST:event_asymptomaticMouseClicked
 
     /**
      * @param args the command line arguments
@@ -150,7 +319,15 @@ public class QuickScreen extends javax.swing.JFrame {
     private javax.swing.JPanel Male;
     private javax.swing.JLabel MaleRadioButton;
     private javax.swing.JTextField ageTextBox;
+    private javax.swing.JPanel asymptomatic;
+    private javax.swing.JLabel asymptomaticRadioButton;
+    private javax.swing.JPanel atypicalAngina;
+    private javax.swing.JLabel atypicalAnginaRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel nonAnginaRadioButton;
+    private javax.swing.JPanel nonAnginal;
+    private javax.swing.JPanel typicalAngina;
+    private javax.swing.JLabel typicalAnginaRadioButton;
     // End of variables declaration//GEN-END:variables
 }
