@@ -56,9 +56,9 @@ The app is only intended for nurses and trained professionals to use. As such, t
 
 > In the implementation of the project, the login feature would be converted to a more secure API. The backend code and login feature were created and integrated in the GUI for demonstrative purposes.
 
-**Login graphic**
+**Login graphic:**
 
--insert login graphic
+![Image](docs/Login.png)
 
 **Current Login Functionality:**
 
