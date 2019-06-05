@@ -16,13 +16,12 @@ This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
 **Project aim:** To reduce the number of early stage TB patients missed by the current triage system implemented in government health facilities in Ghana.
 
-## PROJECT OVERVIEW
-
-**ROADMAP**
+## OVERVIEW
 
 ![Image](docs/projectgraphic.png)
 
-Insert caption regarding infographic here. Follow caption with abstract.
+**ABSTRACT: ** 
+There are many diseases that afflict people in our current generation, ranging from infectious diseases to noncommunicable diseases. Most of these diseases are easily diagnosable with the correct medical technology, with many of these technologies allowing for the early diagnosis of disease to allow for early treatment to control the progression of the disease, spread of infectious diseases, prevent further complications, and enable better management of the diseases. The use of these early detection technologies of diseases however, tends to be limited to a patient-referral system that depends on a number of factors that decide who is most at risk of being inflicted by a particular ailment and the factors may vary wildly based on the location, resources and lifestyle even though correlations for at-risk patients could exist. Our project utilizes machine learning algorithms that can be coupled with existing medical databases to recognize these trends and correlations between at-risk patients and serve as an assistive technology that can help doctors decide whether or not to suggest early detection tests to their patients. Our pilot case study chooses tuberculosis for our database model in order to test our prototype, especially since tuberculosis is one of the leading causes of death for people afflicted with HIV and the early detection of tuberculosis would be very essential to early treatment of the disease and make it easier to manage it.
 
 **PROBLEM BACKGROUND**
 
