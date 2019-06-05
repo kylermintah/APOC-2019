@@ -20,7 +20,7 @@ This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
 
 **ROADMAP**
 
-- Insert infographic/ overview slide here
+![Image](docs/projectgraphic.png)
 
 Insert caption regarding infographic here. Follow caption with abstract.
 
@@ -200,6 +200,8 @@ Should the project be implemented, the TB Screening page, as well as a page with
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 ## NEXT STEPS
+
+![Image](docs/roadmap.png)
 
 ### Phase 1: Project Refinement
 
