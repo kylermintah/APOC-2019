@@ -15,28 +15,31 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
-/**
+/** 
  *
  * @author Kyler Mintah
  */
 public class QuickScreen extends javax.swing.JFrame {
 
+    String path = "C:/Users/allai/OneDrive/Desktop/APOC/APOC-2019/APOCFinalGUI/run_script.bat";
     /**
      * Creates new form QuickScreen
      */
-    private int q1 = -1;
-    private int q2 = -1;
-    private int q3 = -1;
-    private int q4 = -1;
-    private int q5 = -1;
-    private int q6 = -1;
+    private int q1 = -1; //age
+    private int q2 = -1; //sex
+    private int q3 = -1; //cp
+    private int q4 = -1; //chol
+    private int q5 = -1; //bp
+    private int q6 = -1; //exang
+    
+    private boolean backtivate = false;
 
     public QuickScreen() {
         initComponents();
         extraInitComponents();
         
         this.setLocationRelativeTo(null);
-        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        //this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
     }
 
     private void extraInitComponents() {
@@ -49,19 +52,37 @@ public class QuickScreen extends javax.swing.JFrame {
         asymptomaticRadioButton.setVisible(false);
         yesRadioButton.setVisible(false);
         noRadioButton.setVisible(false);
+        cholesterolField.setText("");
+        cholesterolFieldDummy.setText("");
+        bpField.setText("");
+        ageField.setText("");
+        loadingFeedBack.setVisible(false);
+        
+        Cover.setVisible(false);
+        backtivate = false;
         
     }
 
      private boolean checkRadioButtons(){
         boolean result = true;
-        if (q1>-1){
+        if (q2<-1){
             result = false;
-        } 
-        if (q3>-1){
-            result = false;
+        } else{
+            System.out.println("Question 2 registered. Answer = "+q2);
+             System.out.println("Question 2 unregistered. Answer = "+q2);
+            
         }
-        if (q6>-1){
+        if (q3<-1){
             result = false;
+             System.out.println("Question 3 unregistered. Answer = "+q3);
+        } else{
+             System.out.println("Question 3 registered. Answer = "+q3);
+        }
+        if (q6<-1){
+            result = false;
+             System.out.println("Question 6 unregistered. Answer = "+q6);
+        } else{
+             System.out.println("Question 6 registered. Answer = "+q6);
         }
         return result;
     }
@@ -75,11 +96,17 @@ public class QuickScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Cover = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultsBox = new javax.swing.JTextArea();
         Male = new javax.swing.JPanel();
         MaleRadioButton = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         Female = new javax.swing.JPanel();
         FemaleRadioButton = new javax.swing.JLabel();
         ageField = new javax.swing.JTextField();
+        loadingFeedBack = new javax.swing.JLabel();
         bpField = new javax.swing.JTextField();
         typicalAngina = new javax.swing.JPanel();
         typicalAnginaRadioButton = new javax.swing.JLabel();
@@ -95,11 +122,51 @@ public class QuickScreen extends javax.swing.JFrame {
         yesRadioButton = new javax.swing.JLabel();
         No = new javax.swing.JPanel();
         noRadioButton = new javax.swing.JLabel();
-        submitButton = new javax.swing.JButton();
+        submit = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        backButton = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Cover.setBackground(new java.awt.Color(224, 240, 232));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 26)); // NOI18N
+        jLabel2.setText("Results");
+
+        resultsBox.setBackground(new java.awt.Color(224, 240, 232));
+        resultsBox.setColumns(20);
+        resultsBox.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        resultsBox.setRows(5);
+        jScrollPane1.setViewportView(resultsBox);
+
+        javax.swing.GroupLayout CoverLayout = new javax.swing.GroupLayout(Cover);
+        Cover.setLayout(CoverLayout);
+        CoverLayout.setHorizontalGroup(
+            CoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CoverLayout.createSequentialGroup()
+                .addGroup(CoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CoverLayout.createSequentialGroup()
+                        .addGap(337, 337, 337)
+                        .addComponent(jLabel2))
+                    .addGroup(CoverLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+        CoverLayout.setVerticalGroup(
+            CoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CoverLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(184, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(Cover, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 780, 560));
 
         Male.setOpaque(false);
         Male.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -116,8 +183,9 @@ public class QuickScreen extends javax.swing.JFrame {
             }
         });
         Male.add(MaleRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 16, -1, -1));
+        Male.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, -1, -1));
 
-        getContentPane().add(Male, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 70, 70));
+        getContentPane().add(Male, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 70, 70));
 
         Female.setOpaque(false);
         Female.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,19 +196,23 @@ public class QuickScreen extends javax.swing.JFrame {
         Female.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FemaleRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Filled Circle.png"))); // NOI18N
-        Female.add(FemaleRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 17, 40, 40));
+        Female.add(FemaleRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 17, 50, 40));
 
-        getContentPane().add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, 80, 70));
+        getContentPane().add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 80, 70));
 
-        ageField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ageField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         ageField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         ageField.setBorder(null);
-        getContentPane().add(ageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 300, 240, 40));
+        getContentPane().add(ageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 170, 30));
 
-        bpField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loadingFeedBack.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loadingFeedBack.setText("Loading...");
+        getContentPane().add(loadingFeedBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 700, 100, -1));
+
+        bpField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         bpField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         bpField.setBorder(null);
-        getContentPane().add(bpField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, 240, 40));
+        getContentPane().add(bpField, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, 80, 30));
 
         typicalAngina.setOpaque(false);
         typicalAngina.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,7 +230,7 @@ public class QuickScreen extends javax.swing.JFrame {
         });
         typicalAngina.add(typicalAnginaRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, 50, 60));
 
-        getContentPane().add(typicalAngina, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 690, 90, 80));
+        getContentPane().add(typicalAngina, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, 90, 80));
 
         atypicalAngina.setOpaque(false);
         atypicalAngina.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -176,7 +248,7 @@ public class QuickScreen extends javax.swing.JFrame {
         });
         atypicalAngina.add(atypicalAnginaRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 10, 50, 60));
 
-        getContentPane().add(atypicalAngina, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 690, 80, 80));
+        getContentPane().add(atypicalAngina, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 510, 80, 80));
 
         nonAnginal.setOpaque(false);
         nonAnginal.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -194,7 +266,7 @@ public class QuickScreen extends javax.swing.JFrame {
         });
         nonAnginal.add(nonAnginaRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 10, 50, 60));
 
-        getContentPane().add(nonAnginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 690, 80, 80));
+        getContentPane().add(nonAnginal, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 510, 80, 80));
 
         asymptomatic.setOpaque(false);
         asymptomatic.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -212,13 +284,17 @@ public class QuickScreen extends javax.swing.JFrame {
         });
         asymptomatic.add(asymptomaticRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 10, 50, 60));
 
-        getContentPane().add(asymptomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 690, 80, 80));
+        getContentPane().add(asymptomatic, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 80, 80));
 
+        cholesterolField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cholesterolField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cholesterolField.setBorder(null);
-        getContentPane().add(cholesterolField, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 110, 30));
+        getContentPane().add(cholesterolField, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 331, 150, -1));
 
+        cholesterolFieldDummy.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cholesterolFieldDummy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cholesterolFieldDummy.setBorder(null);
-        getContentPane().add(cholesterolFieldDummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 100, 30));
+        getContentPane().add(cholesterolFieldDummy, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, 70, 30));
 
         Yes.setOpaque(false);
         Yes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,7 +312,7 @@ public class QuickScreen extends javax.swing.JFrame {
         });
         Yes.add(yesRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 18, 50, 50));
 
-        getContentPane().add(Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 70, 80));
+        getContentPane().add(Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 70, 80));
 
         No.setOpaque(false);
         No.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,34 +325,53 @@ public class QuickScreen extends javax.swing.JFrame {
         noRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Filled Circle.png"))); // NOI18N
         No.add(noRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 18, 50, 50));
 
-        getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 550, 80, 80));
+        getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 80, 80));
 
-        submitButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        submitButton.setText("SUBMIT");
-        submitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitButtonActionPerformed(evt);
+        submit.setOpaque(false);
+        submit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submitMouseClicked(evt);
             }
         });
-        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 840, 250, 80));
+        submit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 620, 240, 80));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalQuickCheck.png"))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(113, 197, 161));
+
+        jLabel1.setFont(new java.awt.Font("HelvLight", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Quick Check");
+        jPanel1.add(jLabel1);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 280, 50));
+
+        backButton.setOpaque(false);
+        backButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backButtonMouseClicked(evt);
+            }
+        });
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 690, 120, 110));
+
+        background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Quick Check-75 @0.75x.png"))); // NOI18N
+        background.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void questionOneButtonGroup(int x) {
+    private void questionTwoButtonGroup(int x) {
         switch (x) {
             case 0:
                 FemaleRadioButton.setVisible(true);
                 MaleRadioButton.setVisible(false);
-                q1 = 0;
+                q2 = 0;
                 break;
             case 1:
                 MaleRadioButton.setVisible(true);
                 FemaleRadioButton.setVisible(false);
-                q1 = 1;
+                q2 = 1;
                 break;
         }
     }
@@ -336,12 +431,12 @@ public class QuickScreen extends javax.swing.JFrame {
 
     private void MaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MaleMouseClicked
         // TODO add your handling code here:
-        questionOneButtonGroup(1);
+        questionTwoButtonGroup(1);
     }//GEN-LAST:event_MaleMouseClicked
 
     private void FemaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FemaleMouseClicked
         // TODO add your handling code here:
-        questionOneButtonGroup(0);
+        questionTwoButtonGroup(0);
     }//GEN-LAST:event_FemaleMouseClicked
 
     private void atypicalAnginaRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atypicalAnginaRadioButtonMouseClicked
@@ -394,10 +489,12 @@ public class QuickScreen extends javax.swing.JFrame {
         questionSixButtonGroup(0);
     }//GEN-LAST:event_NoMouseClicked
 
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+    private void submitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitMouseClicked
         // TODO add your handling code here:
+           // TODO add your handling code here:
          
         //Verify Input
+        
         boolean valid = true;
         if (!cholesterolField.getText().trim().isEmpty()){
             try{
@@ -412,9 +509,11 @@ public class QuickScreen extends javax.swing.JFrame {
             }
         }
         else{
+            System.out.println("Problem with chol field");
             valid = false;
         }
             valid = checkRadioButtons();
+            System.out.println(valid+" result from radiobuttons");
             if (!cholesterolField.getText().trim().isEmpty()){
             try{
               q4 = Integer.parseInt(cholesterolField.getText());
@@ -446,8 +545,9 @@ public class QuickScreen extends javax.swing.JFrame {
             if (valid == true){
                 Parsing obj = new Parsing(q1,q2,q3,q4,q5,q6);
                 obj.submit("entry.txt");
-                ProcessBuilder processBuilder = new ProcessBuilder("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\run_script.bat");
+                ProcessBuilder processBuilder = new ProcessBuilder(path);
             try {
+                loadingFeedBack.setVisible(true);
                 Process process = processBuilder.start();
                 process.waitFor();
             } catch (IOException ex) {
@@ -456,19 +556,34 @@ public class QuickScreen extends javax.swing.JFrame {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
             } 
             try {
-                BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
+                BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\Users\\allai\\OneDrive\\Desktop\\APOC\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
                 String line = ba.readLine();
                 ba.close();
-                //FileWriter fw = new FileWriter(new File("C:\\githubProjects\\APOC-2019\\APOCFinalGUI\\prediction.txt"),false);
+                //FileWriter fw = new FileWriter(new File("C:/Users/ellie/Desktop/apoc/APOC-2019/APOCFinalGUI/prediction.txt"),false);
                 String result = "";
                 StringBuilder sb = new StringBuilder(result);
+                boolean verdict;
+                String Qualitative = "";
+
                 if (Integer.parseInt(""+line.charAt(0))==1){
-                sb.append("This patient does not likely have heart disease\n"+line);
+                    verdict = false;
+                    Qualitative = "This patient likely does not have heart disease";
                 } else{
-                    sb.append("This patient should be screened for heart disease\n"+line);
+                    verdict = true;
+                     Qualitative = "This patient should be screened for heart disease";
                 }
                 
-                JOptionPane.showMessageDialog(null, sb);
+                 sb.append(Qualitative+"\nRecommend Screen: "+verdict+"\nEntry Data:\nAge: "
+                         +q1+";\nSex: "+q2+";\nCP: "+q3+";\nChol: "+q4+";\nBP: "+q5+";\nExAng: "+q6+"\nClassifier Accuracy:"+line);
+                 
+              
+                
+                //JOptionPane.showMessageDialog(null, sb);
+                
+                extraInitComponents();
+                Cover.setVisible(true);
+                resultsBox.setText(""+sb);
+                backtivate = true;
                 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
@@ -477,12 +592,22 @@ public class QuickScreen extends javax.swing.JFrame {
             }
                 
             }else{
+                loadingFeedBack.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
             }
 //           
 //            
-             
-    }//GEN-LAST:event_submitButtonActionPerformed
+    }//GEN-LAST:event_submitMouseClicked
+
+    private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
+        // TODO add your handling code here:
+        if(backtivate){
+            extraInitComponents();
+                Cover.setVisible(false);
+                resultsBox.setText("");
+                backtivate = false;
+        }
+    }//GEN-LAST:event_backButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -520,6 +645,7 @@ public class QuickScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Cover;
     private javax.swing.JPanel Female;
     private javax.swing.JLabel FemaleRadioButton;
     private javax.swing.JPanel Male;
@@ -531,14 +657,22 @@ public class QuickScreen extends javax.swing.JFrame {
     private javax.swing.JLabel asymptomaticRadioButton;
     private javax.swing.JPanel atypicalAngina;
     private javax.swing.JLabel atypicalAnginaRadioButton;
+    private javax.swing.JPanel backButton;
     private javax.swing.JLabel background;
     private javax.swing.JTextField bpField;
     private javax.swing.JTextField cholesterolField;
     private javax.swing.JTextField cholesterolFieldDummy;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel loadingFeedBack;
     private javax.swing.JLabel noRadioButton;
     private javax.swing.JLabel nonAnginaRadioButton;
     private javax.swing.JPanel nonAnginal;
-    private javax.swing.JButton submitButton;
+    private javax.swing.JTextArea resultsBox;
+    private javax.swing.JPanel submit;
     private javax.swing.JPanel typicalAngina;
     private javax.swing.JLabel typicalAnginaRadioButton;
     private javax.swing.JLabel yesRadioButton;

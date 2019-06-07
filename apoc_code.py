@@ -18,8 +18,8 @@ from sklearn.svm import SVC
 #from joblib import dump, load
 
 def main():
-	database_file="C:/githubProjects/APOC-2019/heart_ML_data.csv"
-	input_file="C:/githubProjects/APOC-2019/APOCFinalGUI/entry.txt"
+	database_file="C:/Users/allai/OneDrive/Desktop/APOC/APOC-2019/heart_ML_data.csv"
+	input_file="C:/Users/allai/OneDrive/Desktop/APOC/APOC-2019/APOCFinalGUI/entry.txt"
 	#loading the data
 	dataset = pandas.read_csv(database_file)
 	f = open(input_file, "r")
@@ -91,7 +91,7 @@ def main():
 	predictions_test = runningModel.predict(X_validation)
 	prediction_input = [user_content_array]
 	prediction_return = runningModel.predict(prediction_input)
-	prediction_writer = open('C:/githubProjects/APOC-2019/APOCFinalGUI/prediction.txt', 'w')
+	prediction_writer = open('C:/Users/allai/OneDrive/Desktop/APOC/APOC-2019/APOCFinalGUI/prediction.txt', 'w')
 	prediction_writer.write(str(prediction_return[0])+','+str(max))
 	sys.exit(0)
 

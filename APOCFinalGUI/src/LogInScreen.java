@@ -18,6 +18,7 @@ public class LogInScreen extends javax.swing.JFrame {
      */
     public LogInScreen() {
         initComponents();
+       this.setLocationRelativeTo(null);
     }
 
     /**
@@ -143,6 +144,12 @@ public class LogInScreen extends javax.swing.JFrame {
                 LoginBackend log = new LoginBackend("src/Data.txt");
                 if (log.login(username, password)) {
                     //Transition to main survey here
+                    
+                    QuickScreen qs = new QuickScreen();
+                    qs.setLocationRelativeTo(null);
+                    this.setVisible(false);
+                    qs.setVisible(true);
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect username "
                             + "or password");
@@ -155,8 +162,12 @@ public class LogInScreen extends javax.swing.JFrame {
 
     private void previousButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previousButtonMouseClicked
         // TODO add your handling code here:
-        usernameTextField.setText("Username");
-        passwordTextField.setText("Password");
+//        usernameTextField.setText("Username");
+//        passwordTextField.setText("Password");
+new LanguageScreen().setVisible(true);
+this.setVisible(false);
+
+
     }//GEN-LAST:event_previousButtonMouseClicked
 
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
@@ -171,6 +182,10 @@ public class LogInScreen extends javax.swing.JFrame {
                 LoginBackend log = new LoginBackend("src/Data.txt");
                 if (log.login(username, password)) {
                     //Transition to main survey here
+                     QuickScreen qs = new QuickScreen();
+                    qs.setLocationRelativeTo(null);
+                    this.setVisible(false);
+                    qs.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect username "
                             + "or password");
