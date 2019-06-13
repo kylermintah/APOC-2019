@@ -1,5 +1,5 @@
 # MLEADS
-## Machine Learing Early Detection System
+## Machine Learning Early Detection System
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 This project is maintained by the [2019 APOC Team](https://apoc.seas.upenn.edu)
