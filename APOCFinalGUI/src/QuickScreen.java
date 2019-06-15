@@ -125,7 +125,10 @@ public class QuickScreen extends javax.swing.JFrame {
         submit = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         backButton = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -154,7 +157,7 @@ public class QuickScreen extends javax.swing.JFrame {
                     .addGroup(CoverLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         CoverLayout.setVerticalGroup(
             CoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,13 +348,73 @@ public class QuickScreen extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 280, 50));
 
+        jPanel4.setOpaque(false);
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 30, -1, -1));
+
         backButton.setOpaque(false);
         backButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backButtonMouseClicked(evt);
             }
         });
-        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 690, 120, 110));
+        getContentPane().add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 530, 120, 110));
+
+        jPanel3.setOpaque(false);
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 700, -1, -1));
+
+        jPanel5.setOpaque(false);
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 690, -1, -1));
 
         background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Quick Check-75 @0.75x.png"))); // NOI18N
@@ -606,8 +669,135 @@ public class QuickScreen extends javax.swing.JFrame {
                 Cover.setVisible(false);
                 resultsBox.setText("");
                 backtivate = false;
+        } else {
+            new QuickScreen().setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_backButtonMouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        LogInScreen log = new LogInScreen();
+        log.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+        LanguageScreen lang = new LanguageScreen();
+        lang.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jPanel4MouseClicked
+
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        // TODO add your handling code here:
+                 
+        //Verify Input
+        //Only introduce functionality if survey is being displayed
+        
+        if (backtivate == false) {
+        boolean valid = true;
+        if (!cholesterolField.getText().trim().isEmpty()){
+            try{
+              q1 = Integer.parseInt(ageField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid age");
+                valid = false;
+                q1 = -1;
+            } finally{
+                 System.out.println("Question 1 registered. Answer = "+q1);
+            }
+        }
+        else{
+            System.out.println("Problem with chol field");
+            valid = false;
+        }
+            valid = checkRadioButtons();
+            System.out.println(valid+" result from radiobuttons");
+            if (!cholesterolField.getText().trim().isEmpty()){
+            try{
+              q4 = Integer.parseInt(cholesterolField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid cholesterol level");
+                valid = false;
+                q4 = -1;
+            } finally {
+                System.out.println("Question 4 registered. Answer = "+q4);
+            }
+            } else{ //hfhf
+                valid = false;
+            }
+            if (!bpField.getText().trim().isEmpty()){
+            try{
+              q5 = Integer.parseInt(bpField.getText());
+            }catch (NumberFormatException ex) {
+                //handle exception here
+                JOptionPane.showMessageDialog(null, "Please enter a valid cholesterol level");
+                valid = false;
+                q5 = -1;
+            } finally {
+                System.out.println("Question 5 registered. Answer = "+q5);
+            }
+            } else{
+                valid = false;
+            }
+            if (valid == true){
+                Parsing obj = new Parsing(q1,q2,q3,q4,q5,q6);
+                obj.submit("entry.txt");
+                ProcessBuilder processBuilder = new ProcessBuilder(path);
+            try {
+                loadingFeedBack.setVisible(true);
+                Process process = processBuilder.start();
+                process.waitFor();
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            try {
+                BufferedReader ba = new BufferedReader(new FileReader(new File("C:\\Users\\allai\\OneDrive\\Desktop\\APOC\\APOC-2019\\APOCFinalGUI\\prediction.txt")));
+                String line = ba.readLine();
+                ba.close();
+                //FileWriter fw = new FileWriter(new File("C:/Users/ellie/Desktop/apoc/APOC-2019/APOCFinalGUI/prediction.txt"),false);
+                String result = "";
+                StringBuilder sb = new StringBuilder(result);
+                boolean verdict;
+                String Qualitative = "";
+
+                if (Integer.parseInt(""+line.charAt(0))==1){
+                    verdict = false;
+                    Qualitative = "This patient likely does not have heart disease";
+                } else{
+                    verdict = true;
+                     Qualitative = "This patient should be screened for heart disease";
+                }
+                
+                 sb.append(Qualitative+"\nRecommend Screen: "+verdict+"\nEntry Data:\nAge: "
+                         +q1+";\nSex: "+q2+";\nCP: "+q3+";\nChol: "+q4+";\nBP: "+q5+";\nExAng: "+q6+"\nClassifier Accuracy:"+line);
+                 
+              
+                
+                //JOptionPane.showMessageDialog(null, sb);
+                
+                extraInitComponents();
+                Cover.setVisible(true);
+                resultsBox.setText(""+sb);
+                backtivate = true;
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+            }else{
+                loadingFeedBack.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Please enter all fields correctly");
+            }
+        }
+    }//GEN-LAST:event_jPanel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -666,6 +856,9 @@ public class QuickScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loadingFeedBack;
     private javax.swing.JLabel noRadioButton;
