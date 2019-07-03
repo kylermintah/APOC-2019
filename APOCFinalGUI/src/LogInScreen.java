@@ -41,11 +41,13 @@ public class LogInScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        usernameTextField.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
         usernameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         usernameTextField.setText("Username");
         usernameTextField.setBorder(null);
         getContentPane().add(usernameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 320, 50));
 
+        passwordTextField.setFont(new java.awt.Font("Sitka Small", 0, 24)); // NOI18N
         passwordTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         passwordTextField.setText("Password");
         passwordTextField.setBorder(null);
